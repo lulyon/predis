@@ -115,6 +115,10 @@ class Client implements ClientInterface, \IteratorAggregate
                 return $this->options->connections->create($parameters);
             }
 
+            if(count($parameters) == 1 && isset($parameters[0]) && is_string($parameters[0])) {
+            	return $this->options->connections->create($parameters);
+            }
+
             $options = $this->options;
 
             if ($options->defined('aggregate')) {
